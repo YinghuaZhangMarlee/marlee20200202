@@ -68,12 +68,14 @@ public class RobotTask {
 		this.dateString = dateString;
 	}
 
+	
+	
 	public String toString() {
 	
-		return ("Task name :"+ this.taskName);
+		
+		return String.format("ID : %1$-4d TaskName: %2$-12s Objective: %3$-12s StartDate: %4$-12s AssignedRobotID: %5$-4d",
+				getId(),getTaskName(),getObjective(),getStartDate(),getAssignedRobotID());
+		}
+		
 	}
-	
-	
-	
 
-}

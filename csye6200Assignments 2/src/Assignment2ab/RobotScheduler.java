@@ -4,36 +4,32 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-
 /*
  * * assignment2ab * 
  */
-
-
 
 public class RobotScheduler {
 //* assignment2ab *  Add a private  ArrayList for holding  RTs , 
 	private ArrayList<RobotTask> robotList= new ArrayList<RobotTask>();
 	public RobotScheduler() {
-		
 	}
 //* assignment2ab *  add public convenience methods that support adding, getting and removing  of RT instances.
 	public void add(RobotTask rTask) {
 		robotList.add(rTask);
 	}
-	public void get(RobotTask rTask) {
-		int num= indexOf(RobotTask.getId);
-		robotList.get(num);
-	}
-	public void remove(RobotTask rTask) {
-		robotList.remove(rTask);
-	}
+//	public void get(RobotTask rTask) {
+//		int num= indexOf(RobotTask.getId);
+//		robotList.get(num);
+//	}
+//	public void remove(RobotTask rTask) {
+//		robotList.remove(rTask);
+//	}
 
 //* assignment2ab * Create a public method that loops through all  RTs and prints an attractive listing
 
 	public void list() {
 		for (RobotTask task: robotList) {
-			System.out.println("");
+			System.out.println("Robot:"+task);
 		}
 	}
 	
@@ -42,7 +38,7 @@ public class RobotScheduler {
 
 	private HashMap<String,String> rtMap = new HashMap<String,String>();
 	
-	private void run() {
+	private void run() {//这里是不对的 
 		rtMap.put("robot1", "This is Object 1");
 		rtMap.put("robot2", "This is Object 2");
 		rtMap.put("robot3", "This is Object 3");
