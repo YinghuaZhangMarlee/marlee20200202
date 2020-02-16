@@ -1,0 +1,45 @@
+Robot constructed called.
+Robot[Name=AAA, Manufacturer=Marlee,Position=((10.0,9.8)),Heading=45/degree,Speed=5, Weight=20/Kg, EnginePowerDraw=2/mA, BatteryCapacity=5/mA-Hour]
+
+ *Robot Name*  *Manufacturer*  *Position(X,Y)*  *Heading/degree*  *Speed*  *Weight/Kg*  *EnginePowerDraw/mA*  *BatteryCapacity/mA-Hour* 
+
+>>>   BBB          Marlee        (1.0,2.0)             45            3          19                3                        5
+>>>   CCC          Marlee        (3.0,4.0)             30            5          19                7                        2
+>>>   DDD          Marlee       (-5.0,6.0)             90            6          22                5                        5
+>>>   EEE          Marlee        (7.0,8.0)            180            9          25                8                       10
+>>>   FFF          Marlee       (9.0,19.0)            270           10          28                6                       11
+
+
+the largest distance it can go is 1.7999999999999998
+the boundary point is (2.2727922061357857,3.2727922061357853)
+
+the largest distance it can go is 17.5
+the boundary point is (18.15544456622768,12.749999999999998)
+
+the largest distance it can go is 6.0
+the boundary point is (-5.0,12.0)
+
+the largest distance it can go is 7.2
+the boundary point is (-0.20000000000000018,8.0)
+
+the largest distance it can go is 5.454545454545454
+the boundary point is (8.999999999999998,13.545454545454547)
+**************************   After adding, getting    *************************************************************
+ArrayList :
+Robot:ID : 0    TaskName: TaskTest     Objective: ObjectiveTest StartDate: Thu Jan 02 00:02:00 EST 2020 AssignedRobotID: 123 
+Robot:ID : 1    TaskName: Task1        Objective: test1        StartDate: Mon Feb 10 14:57:39 EST 2020 AssignedRobotID: 1001
+Robot:ID : 2    TaskName: Task2        Objective: test2        StartDate: Mon Feb 10 14:57:39 EST 2020 AssignedRobotID: 1002
+Robot:ID : 3    TaskName: Task3        Objective: test3        StartDate: Mon Feb 10 14:57:39 EST 2020 AssignedRobotID: 1003
+Robot:ID : 4    TaskName: Task4        Objective: test4        StartDate: Mon Feb 10 14:57:39 EST 2020 AssignedRobotID: 1004
+Robot:ID : 5    TaskName: Task5        Objective: test5        StartDate: Mon Feb 10 14:57:39 EST 2020 AssignedRobotID: 1005
+ HashMap:
+{1001=ID : 1    TaskName: Task1        Objective: test1        StartDate: Mon Feb 10 14:57:39 EST 2020 AssignedRobotID: 1001, 1002=ID : 2    TaskName: Task2        Objective: test2        StartDate: Mon Feb 10 14:57:39 EST 2020 AssignedRobotID: 1002, 123=ID : 0    TaskName: TaskTest     Objective: ObjectiveTest StartDate: Thu Jan 02 00:02:00 EST 2020 AssignedRobotID: 123 , 1003=ID : 3    TaskName: Task3        Objective: test3        StartDate: Mon Feb 10 14:57:39 EST 2020 AssignedRobotID: 1003, 1004=ID : 4    TaskName: Task4        Objective: test4        StartDate: Mon Feb 10 14:57:39 EST 2020 AssignedRobotID: 1004, 1005=ID : 5    TaskName: Task5        Objective: test5        StartDate: Mon Feb 10 14:57:39 EST 2020 AssignedRobotID: 1005}
+**************************   After removing   *************************************************************
+ArrayList :
+Robot:ID : 0    TaskName: TaskTest     Objective: ObjectiveTest StartDate: Thu Jan 02 00:02:00 EST 2020 AssignedRobotID: 123 
+Robot:ID : 1    TaskName: Task1        Objective: test1        StartDate: Mon Feb 10 14:57:39 EST 2020 AssignedRobotID: 1001
+Robot:ID : 2    TaskName: Task2        Objective: test2        StartDate: Mon Feb 10 14:57:39 EST 2020 AssignedRobotID: 1002
+Robot:ID : 3    TaskName: Task3        Objective: test3        StartDate: Mon Feb 10 14:57:39 EST 2020 AssignedRobotID: 1003
+Robot:ID : 4    TaskName: Task4        Objective: test4        StartDate: Mon Feb 10 14:57:39 EST 2020 AssignedRobotID: 1004
+ HashMap:
+{1001=ID : 1    TaskName: Task1        Objective: test1        StartDate: Mon Feb 10 14:57:39 EST 2020 AssignedRobotID: 1001, 1002=ID : 2    TaskName: Task2        Objective: test2        StartDate: Mon Feb 10 14:57:39 EST 2020 AssignedRobotID: 1002, 123=ID : 0    TaskName: TaskTest     Objective: ObjectiveTest StartDate: Thu Jan 02 00:02:00 EST 2020 AssignedRobotID: 123 , 1003=ID : 3    TaskName: Task3        Objective: test3        StartDate: Mon Feb 10 14:57:39 EST 2020 AssignedRobotID: 1003, 1004=ID : 4    TaskName: Task4        Objective: test4        StartDate: Mon Feb 10 14:57:39 EST 2020 AssignedRobotID: 1004}
