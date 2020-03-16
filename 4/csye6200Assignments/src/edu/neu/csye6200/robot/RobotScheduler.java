@@ -1,5 +1,7 @@
 package edu.neu.csye6200.robot;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,10 +12,17 @@ public class RobotScheduler {
 	private static RobotScheduler rsInstance = new RobotScheduler();
 	private ArrayList<RobotTask> rsList;
 	private HashMap<Integer, RobotTask> rsMap;
+	private RobotIO robotLog;
+	private String path = "robot.txt";
 
 	public RobotScheduler() {
 		this.rsList = new ArrayList<RobotTask>();
 		this.rsMap = new HashMap<Integer, RobotTask>();
+		this.robotLog = new RobotIO();
+		File fRobot = new File(this.path);
+		if (fRobot.exists()) {
+			fRobot.delete();
+		}
 	}
 
 	public static RobotScheduler getInstance() {
@@ -44,8 +53,7 @@ public class RobotScheduler {
 			}
 		}
 	}
-	
-	
+
 	public RobotTask find(int taskID) {
 		for (RobotTask rTask : this.rsList) {
 			if (rTask.getId() == taskID) {
@@ -56,8 +64,7 @@ public class RobotScheduler {
 		return null;
 	}
 
-	
-	//quick sort for assigned_robot_id
+	// quick sort for assigned_robot_id
 	public ArrayList<RobotTask> quickSortTask(int start, int end) {
 		int mid = this.rsList.get(start).getAssignedRobotID();
 		int i = start;
@@ -69,8 +76,7 @@ public class RobotScheduler {
 			while ((i < j) && (this.rsList.get(i).getAssignedRobotID() < mid)) {
 				i++;
 			}
-			if ((this.rsList.get(i).getAssignedRobotID() == this.rsList.get(j).getAssignedRobotID())
-					&& (i < j)) {
+			if ((this.rsList.get(i).getAssignedRobotID() == this.rsList.get(j).getAssignedRobotID()) && (i < j)) {
 				i++;
 			} else {
 				RobotTask temp = this.rsList.get(i);
@@ -83,35 +89,41 @@ public class RobotScheduler {
 			this.rsList = quickSortTask(start, i - 1);
 		if (j + 1 < end)
 			this.rsList = quickSortTask(j + 1, end);
-	
+
 		return this.rsList;
 	}
-	
 
 	public void loopTask() {
 		System.out.println("ArrayList :");
+		this.robotLog.saveStrToDisk("**************************   I am asterisk   *************************************************************\n", this.path);
+		this.robotLog.saveStrToDisk("ArrayList :\n", this.path);
 		for (RobotTask rTask : this.rsList) {
 			System.out.println("Robot:" + rTask);
+			this.robotLog.saveStrToDisk("Robot:" + rTask + "\n", this.path);
 		}
 	}
-	
-	
+
 	public void update() {
 		Random r = new Random();
 		RobotTest rtInstance = RobotTest.getInstance();
-		for(RobotTask rTask: this.rsList) {
+		for (RobotTask rTask : this.rsList) {
 			int moveX = r.nextInt(10);
 			int moveY = r.nextInt(10);
-			
+
 			Robot robot = rtInstance.robotList[rTask.getAssignedRobotID()];
+
 			System.out.println(robot);
 			System.out.println("now robot move x for: " + moveX + " move y for " + moveY);
-			robot.setPosition(new Robot.Position(robot.getPosition().getX() + moveX,
-					robot.getPosition().getY() + moveY));
+			this.robotLog.saveStrToDisk(robot + "\n", this.path);
+			this.robotLog.saveStrToDisk("now robot move x for: " + moveX + " move y for " + moveY + "\n", this.path);
+
+			robot.setPosition(
+					new Robot.Position(robot.getPosition().getX() + moveX, robot.getPosition().getY() + moveY));
+
 			System.out.println(robot);
+			this.robotLog.saveStrToDisk(robot + "\n", this.path);
 		}
 	}
-	
 
 	public static void main(String[] args) throws ParseException {
 		runScheduler();
@@ -132,11 +144,12 @@ public class RobotScheduler {
 
 		System.out.println(
 				"**************************   After adding, getting    *************************************************************");
+
 		rsInstance.loopTask();
 
 		System.out.println(
 				"**************************   After quick sort   *************************************************************");
-		rsInstance.quickSortTask(0, rsInstance.rsList.size()-1);
+		rsInstance.quickSortTask(0, rsInstance.rsList.size() - 1);
 		rsInstance.loopTask();
 		rsInstance.update();
 

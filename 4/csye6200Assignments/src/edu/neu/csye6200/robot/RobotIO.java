@@ -10,6 +10,31 @@ import java.util.ArrayList;
 
 //This class will permit Robot information to be stored (and possibly retrieved) from disk
 public class RobotIO {
+	
+	
+	public void saveStrToDisk(String str, String path) {
+        File fRobot = new File(path);
+        if (!fRobot.exists()) {
+            try {
+            	fRobot.createNewFile();
+            }
+            catch (IOException e) {
+            	e.printStackTrace();
+            }
+        }
+               
+        try {
+            FileWriter writer = new FileWriter(fRobot, true);
+            writer.write(str);
+            writer.close();
+            System.out.println("log writing...");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
 
     public void Save(TransportRobot ts, File fRobot) {
         try {

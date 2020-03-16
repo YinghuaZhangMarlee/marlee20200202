@@ -99,8 +99,8 @@ public class TransportRobot extends Robot {
         rIO.load("Robot.txt");
     }
 
-    public static void main(String[] args) {
-        runRun();
-    }
+//    public static void main(String[] args) {
+//        runRun();
+//    }
 
 }
