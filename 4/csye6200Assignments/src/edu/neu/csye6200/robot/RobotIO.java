@@ -27,7 +27,6 @@ public class RobotIO {
             FileWriter writer = new FileWriter(fRobot, true);
             writer.write(str);
             writer.close();
-            System.out.println("log writing...");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

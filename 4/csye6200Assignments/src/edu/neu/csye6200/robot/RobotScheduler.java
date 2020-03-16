@@ -103,32 +103,12 @@ public class RobotScheduler {
 		}
 	}
 
-	public void update() {
-		Random r = new Random();
-		RobotTest rtInstance = RobotTest.getInstance();
-		for (RobotTask rTask : this.rsList) {
-			int moveX = r.nextInt(10);
-			int moveY = r.nextInt(10);
-
-			Robot robot = rtInstance.robotList[rTask.getAssignedRobotID()];
-
-			System.out.println(robot);
-			System.out.println("now robot move x for: " + moveX + " move y for " + moveY);
-			this.robotLog.saveStrToDisk(robot + "\n", this.path);
-			this.robotLog.saveStrToDisk("now robot move x for: " + moveX + " move y for " + moveY + "\n", this.path);
-
-			robot.setPosition(
-					new Robot.Position(robot.getPosition().getX() + moveX, robot.getPosition().getY() + moveY));
-
-			System.out.println(robot);
-			this.robotLog.saveStrToDisk(robot + "\n", this.path);
-		}
-	}
 
 	public static void main(String[] args) throws ParseException {
 		runScheduler();
 	}
 
+	
 	public static void runScheduler() throws ParseException {
 		RobotScheduler rsInstance = RobotScheduler.getInstance();
 		rsInstance.add(new RobotTask());
@@ -151,7 +131,9 @@ public class RobotScheduler {
 				"**************************   After quick sort   *************************************************************");
 		rsInstance.quickSortTask(0, rsInstance.rsList.size() - 1);
 		rsInstance.loopTask();
-		rsInstance.update();
+		
+		RobotSimulation rbSimulation = new RobotSimulation();
+		rbSimulation.update(rsInstance.rsList);
 
 	}
 
