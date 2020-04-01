@@ -1,0 +1,50 @@
+p*a*c*k*a*g*e* *e*d*u*.*n*e*u*.*c*s*y*e*6*2*0*0*.*i*o*;**
+**
+*i*m*p*o*r*t* *j*a*v*a*.*i*o*.*F*i*l*e*N*o*t*F*o*u*n*d*E*x*c*e*p*t*i*o*n*;**
+*i*m*p*o*r*t* *j*a*v*a*.*i*o*.*F*i*l*e*R*e*a*d*e*r*;**
+*i*m*p*o*r*t* *j*a*v*a*.*i*o*.*F*i*l*e*W*r*i*t*e*r*;**
+*i*m*p*o*r*t* *j*a*v*a*.*i*o*.*I*O*E*x*c*e*p*t*i*o*n*;**
+**
+*p*u*b*l*i*c* *c*l*a*s*s* *F*i*l*e*W*r*i*t*e*r*T*e*s*t* *{**
+**
+*	*p*u*b*l*i*c* *F*i*l*e*W*r*i*t*e*r*T*e*s*t*(*)* *{**
+*	*	*/*/* *T*O*D*O* *A*u*t*o*-*g*e*n*e*r*a*t*e*d* *c*o*n*s*t*r*u*c*t*o*r* *s*t*u*b**
+*	*}**
+*	*p*r*i*v*a*t*e* *v*o*i*d* *r*u*n*(*)* *{**
+*	*	**
+*	*	*S*t*r*i*n*g* *b*a*s*e* *=* *"*/*U*s*e*r*s*/*z*h*a*n*g*y*i*n*g*h*u*a*/*e*c*l*i*p*s*e*-*w*o*r*k*s*p*a*c*e*/*c*s*y*e*6*2*0*0*c*l*a*s*s*/*s*r*c*/*e*d*u*/*n*e*u*/*c*s*y*e*6*2*0*0*/*i*o*/*"*;**
+*	*	**
+*	*	**
+*	*	*t*r*y* *{**
+*	*	*	*F*i*l*e*R*e*a*d*e*r* *r*e*a*d*e*r* *=* *n*e*w* *F*i*l*e*R*e*a*d*e*r*(*b*a*s*e* *+*"*F*i*l*e*W*r*i*t*e*r*T*e*s*t*.*j*a*v*a*"*)*;**
+*	*	*	*F*i*l*e*W*r*i*t*e*r* *w*r*i*t*e*r* *=* *n*e*w* *F*i*l*e*W*r*i*t*e*r*(*b*a*s*e* *+*"*F*W*D*u*p*l*i*c*a*t*e*X*.*t*x*t*"*)*;**
+*	*	*	**
+*	*	*	*i*n*t* *i*n*v*a*l* *=* *r*e*a*d*e*r*.*r*e*a*d*(*)*;**
+*	*	*	*w*h*i*l*e*(*i*n*v*a*l* *>*=*0*)* *{**
+*	*	*	*	*/*/*l*o*o*p* *a*r*o*u*n*d* *a*n*d* *r*e*a*d* *d*a*t*e*;**
+*	*	*	*	*S*y*s*t*e*m*.*o*u*t*.*p*r*i*n*t*(*(*(*c*h*a*r*)*i*n*v*a*l*)*)*;**
+*	*	*	*	*w*r*i*t*e*r*.*w*r*i*t*e*(*(*(*c*h*a*r*)*i*n*v*a*l*)*+* *"***"*)*;**
+*	*	*	*	*i*n*v*a*l* *=* *r*e*a*d*e*r*.*r*e*a*d*(*)*;**
+*	*	*	*}**
+*	*	*	**
+*	*	*	*r*e*a*d*e*r*.*c*l*o*s*e*(*)*;**
+*	*	*	*w*r*i*t*e*r*.*c*l*o*s*e*(*)*;**
+*	*	*	**
+*	*	*}* *c*a*t*c*h* *(*F*i*l*e*N*o*t*F*o*u*n*d*E*x*c*e*p*t*i*o*n* *e*)* *{**
+*	*	*	*S*y*s*t*e*m*.*o*u*t*.*p*r*i*n*t*l*n*(*"*F*i*l*e* *n*o*t* *f*o*u*n*d*�*�* *"* *+* *e*.*g*e*t*M*e*s*s*a*g*e*(*)*)*;**
+*	*	*	*e*.*p*r*i*n*t*S*t*a*c*k*T*r*a*c*e*(*)*;**
+*	*	*}* *c*a*t*c*h* *(*I*O*E*x*c*e*p*t*i*o*n* *e*)* *{**
+*	*	*	*/*/* *T*O*D*O* *A*u*t*o*-*g*e*n*e*r*a*t*e*d* *c*a*t*c*h* *b*l*o*c*k**
+*	*	*	*S*y*s*t*e*m*.*o*u*t*.*p*r*i*n*t*l*n*(*"*I*O*E*r*r*o*r* *c*a*u*g*h*t* *w*a*s*�*�* *"* *+* *e*.*g*e*t*M*e*s*s*a*g*e*(*)*)*;**
+*	*	*	*e*.*p*r*i*n*t*S*t*a*c*k*T*r*a*c*e*(*)*;**
+*	*	*}**
+*	*	**
+*	*}**
+*	*p*u*b*l*i*c* *s*t*a*t*i*c* *v*o*i*d* *m*a*i*n*(*S*t*r*i*n*g*[*]* *a*r*g*s*)* *{**
+*	*	*/*/* *T*O*D*O* *A*u*t*o*-*g*e*n*e*r*a*t*e*d* *m*e*t*h*o*d* *s*t*u*b**
+*	*	*F*i*l*e*W*r*i*t*e*r*T*e*s*t* *f*w*t* *=* *n*e*w* *F*i*l*e*W*r*i*t*e*r*T*e*s*t*(*)*;**
+*	*	*f*w*t*.*r*u*n*(*)*;**
+*	*}**
+**
+*}**
+*
