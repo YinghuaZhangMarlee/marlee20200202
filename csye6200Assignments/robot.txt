@@ -1,0 +1,54 @@
+**************************   I am asterisk   *************************************************************
+ArrayList :
+Robot:ID : 0    TaskName: TaskTest     Objective: ObjectiveTest StartDate: Thu Jan 02 00:02:00 EST 2020 AssignedRobotID: 0   
+Robot:ID : 1    TaskName: Task5        Objective: test5        StartDate: Mon Mar 23 11:34:51 EDT 2020 AssignedRobotID: 5   
+Robot:ID : 2    TaskName: Task6        Objective: test6        StartDate: Mon Mar 23 11:34:51 EDT 2020 AssignedRobotID: 6   
+Robot:ID : 3    TaskName: Task7        Objective: test7        StartDate: Mon Mar 23 11:34:51 EDT 2020 AssignedRobotID: 7   
+Robot:ID : 4    TaskName: Task8        Objective: test8        StartDate: Mon Mar 23 11:34:51 EDT 2020 AssignedRobotID: 8   
+Robot:ID : 5    TaskName: Task9        Objective: test9        StartDate: Mon Mar 23 11:34:51 EDT 2020 AssignedRobotID: 9   
+Robot:ID : 6    TaskName: Task1        Objective: test1        StartDate: Mon Mar 23 11:34:51 EDT 2020 AssignedRobotID: 1   
+Robot:ID : 7    TaskName: Task2        Objective: test2        StartDate: Mon Mar 23 11:34:51 EDT 2020 AssignedRobotID: 2   
+Robot:ID : 8    TaskName: Task3        Objective: test3        StartDate: Mon Mar 23 11:34:51 EDT 2020 AssignedRobotID: 3   
+Robot:ID : 9    TaskName: Task4        Objective: test4        StartDate: Mon Mar 23 11:34:51 EDT 2020 AssignedRobotID: 4   
+**************************   I am asterisk   *************************************************************
+ArrayList :
+Robot:ID : 0    TaskName: TaskTest     Objective: ObjectiveTest StartDate: Thu Jan 02 00:02:00 EST 2020 AssignedRobotID: 0   
+Robot:ID : 6    TaskName: Task1        Objective: test1        StartDate: Mon Mar 23 11:34:51 EDT 2020 AssignedRobotID: 1   
+Robot:ID : 7    TaskName: Task2        Objective: test2        StartDate: Mon Mar 23 11:34:51 EDT 2020 AssignedRobotID: 2   
+Robot:ID : 8    TaskName: Task3        Objective: test3        StartDate: Mon Mar 23 11:34:51 EDT 2020 AssignedRobotID: 3   
+Robot:ID : 9    TaskName: Task4        Objective: test4        StartDate: Mon Mar 23 11:34:51 EDT 2020 AssignedRobotID: 4   
+Robot:ID : 1    TaskName: Task5        Objective: test5        StartDate: Mon Mar 23 11:34:51 EDT 2020 AssignedRobotID: 5   
+Robot:ID : 2    TaskName: Task6        Objective: test6        StartDate: Mon Mar 23 11:34:51 EDT 2020 AssignedRobotID: 6   
+Robot:ID : 3    TaskName: Task7        Objective: test7        StartDate: Mon Mar 23 11:34:51 EDT 2020 AssignedRobotID: 7   
+Robot:ID : 4    TaskName: Task8        Objective: test8        StartDate: Mon Mar 23 11:34:51 EDT 2020 AssignedRobotID: 8   
+Robot:ID : 5    TaskName: Task9        Objective: test9        StartDate: Mon Mar 23 11:34:51 EDT 2020 AssignedRobotID: 9   
+Robot[Name=AAA, Manufacturer=Marlee,Position=((10.0,9.8)),Heading=45/degree,Speed=5, Weight=20/Kg, EnginePowerDraw=2/mA, BatteryCapacity=5/mA-Hour]
+now robot move x for: 1 move y for 5
+Robot[Name=AAA, Manufacturer=Marlee,Position=((11.0,14.8)),Heading=45/degree,Speed=5, Weight=20/Kg, EnginePowerDraw=2/mA, BatteryCapacity=5/mA-Hour]
+Robot[Name=BBB, Manufacturer=Marlee,Position=((1.0,2.0)),Heading=45/degree,Speed=3, Weight=19/Kg, EnginePowerDraw=3/mA, BatteryCapacity=5/mA-Hour]
+now robot move x for: 8 move y for 2
+Robot[Name=BBB, Manufacturer=Marlee,Position=((9.0,4.0)),Heading=45/degree,Speed=3, Weight=19/Kg, EnginePowerDraw=3/mA, BatteryCapacity=5/mA-Hour]
+Robot[Name=CCC, Manufacturer=Marlee,Position=((3.0,4.0)),Heading=30/degree,Speed=5, Weight=19/Kg, EnginePowerDraw=7/mA, BatteryCapacity=2/mA-Hour]
+now robot move x for: 3 move y for 9
+Robot[Name=CCC, Manufacturer=Marlee,Position=((6.0,13.0)),Heading=30/degree,Speed=5, Weight=19/Kg, EnginePowerDraw=7/mA, BatteryCapacity=2/mA-Hour]
+Robot[Name=DDD, Manufacturer=Marlee,Position=((-5.0,6.0)),Heading=90/degree,Speed=6, Weight=22/Kg, EnginePowerDraw=5/mA, BatteryCapacity=5/mA-Hour]
+now robot move x for: 6 move y for 4
+Robot[Name=DDD, Manufacturer=Marlee,Position=((1.0,10.0)),Heading=90/degree,Speed=6, Weight=22/Kg, EnginePowerDraw=5/mA, BatteryCapacity=5/mA-Hour]
+Robot[Name=EEE, Manufacturer=Marlee,Position=((7.0,8.0)),Heading=180/degree,Speed=9, Weight=25/Kg, EnginePowerDraw=8/mA, BatteryCapacity=10/mA-Hour]
+now robot move x for: 4 move y for 6
+Robot[Name=EEE, Manufacturer=Marlee,Position=((11.0,14.0)),Heading=180/degree,Speed=9, Weight=25/Kg, EnginePowerDraw=8/mA, BatteryCapacity=10/mA-Hour]
+Robot[Name=FFF, Manufacturer=Marlee,Position=((9.0,19.0)),Heading=270/degree,Speed=10, Weight=28/Kg, EnginePowerDraw=6/mA, BatteryCapacity=11/mA-Hour]
+now robot move x for: 8 move y for 4
+Robot[Name=FFF, Manufacturer=Marlee,Position=((17.0,23.0)),Heading=270/degree,Speed=10, Weight=28/Kg, EnginePowerDraw=6/mA, BatteryCapacity=11/mA-Hour]
+Robot[Name=BBB, Manufacturer=Marlee,Position=((1.0,2.0)),Heading=45/degree,Speed=3, Weight=19/Kg, EnginePowerDraw=3/mA, BatteryCapacity=5/mA-Hour]
+now robot move x for: 3 move y for 2
+Robot[Name=BBB, Manufacturer=Marlee,Position=((4.0,4.0)),Heading=45/degree,Speed=3, Weight=19/Kg, EnginePowerDraw=3/mA, BatteryCapacity=5/mA-Hour]
+Robot[Name=CCC, Manufacturer=Marlee,Position=((3.0,4.0)),Heading=30/degree,Speed=5, Weight=19/Kg, EnginePowerDraw=7/mA, BatteryCapacity=2/mA-Hour]
+now robot move x for: 6 move y for 9
+Robot[Name=CCC, Manufacturer=Marlee,Position=((9.0,13.0)),Heading=30/degree,Speed=5, Weight=19/Kg, EnginePowerDraw=7/mA, BatteryCapacity=2/mA-Hour]
+Robot[Name=DDD, Manufacturer=Marlee,Position=((-5.0,6.0)),Heading=90/degree,Speed=6, Weight=22/Kg, EnginePowerDraw=5/mA, BatteryCapacity=5/mA-Hour]
+now robot move x for: 6 move y for 3
+Robot[Name=DDD, Manufacturer=Marlee,Position=((1.0,9.0)),Heading=90/degree,Speed=6, Weight=22/Kg, EnginePowerDraw=5/mA, BatteryCapacity=5/mA-Hour]
+Robot[Name=EEE, Manufacturer=Marlee,Position=((7.0,8.0)),Heading=180/degree,Speed=9, Weight=25/Kg, EnginePowerDraw=8/mA, BatteryCapacity=10/mA-Hour]
+now robot move x for: 8 move y for 9
+Robot[Name=EEE, Manufacturer=Marlee,Position=((15.0,17.0)),Heading=180/degree,Speed=9, Weight=25/Kg, EnginePowerDraw=8/mA, BatteryCapacity=10/mA-Hour]
