@@ -11,6 +11,9 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 
+import edu.neu.csye6200.av.Road;
+import edu.neu.csye6200.av.Vehicle;
+
 @SuppressWarnings("deprecation")
 public class MyPanel extends JPanel implements Observer {
 	Image car1 = GameUtil.getImage("images/car1.jpg");
@@ -27,7 +30,7 @@ public class MyPanel extends JPanel implements Observer {
 
 	// Don't call paint directly !! -> Use repaint() to trigger a redraw
 	public void paint(Graphics g)  {
-		
+		Road road = Road.getInstance();
 		Graphics2D g2d = (Graphics2D) g;
 		
 		Dimension size = getSize();
@@ -52,12 +55,12 @@ public class MyPanel extends JPanel implements Observer {
 		g2d.fillRect(0, 620, size.width, 30);
 		
 		//三辆车的初始位置
-		g2d.drawImage(car1, 0, 300, 100, 100, null);
-		g2d.drawImage(car2, 300, 300, 100, 100, null);
-		g2d.drawImage(car3, 600, 130, 100, 100, null);
+		g2d.drawImage(car1, road.getVehicleList().get(0).getLocation().getxPosition(), road.getVehicleList().get(0).getLocation().getyPosition(), 100, 100, null);
+		g2d.drawImage(car2, road.getVehicleList().get(1).getLocation().getxPosition(), road.getVehicleList().get(1).getLocation().getyPosition(), 100, 100, null);
+		g2d.drawImage(car3, road.getVehicleList().get(2).getLocation().getxPosition(), road.getVehicleList().get(2).getLocation().getyPosition(), 100, 100, null);
 		//	路障位置
 		g2d.drawImage(b2,800, 130, 100, 100, null);
-		g2d.drawImage(b3, 1200, 310, 100, 100, null);
+		g2d.drawImage(b3, 1200, 300, 100, 100, null);
 	//	g2d.drawImage(img, x, y, width, height, observer)
 		
 		g2d.setColor(c);
@@ -73,9 +76,9 @@ public class MyPanel extends JPanel implements Observer {
 		
 		if (arg instanceof Simulation) {
 			sim = (Simulation) arg;
-			int ctr = sim.getCtr();
-			bgColor = ((ctr % 2) == 0) ? Color.BLACK : Color.CYAN;
-				
+			for(Vehicle vehicle: Road.getInstance().getVehicleList()) {
+				vehicle.moveOneStep();
+			}
 			this.repaint(); // Notify that we need to paint the canvas
 		}
 		

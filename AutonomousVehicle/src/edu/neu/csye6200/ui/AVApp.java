@@ -3,11 +3,13 @@ package edu.neu.csye6200.ui;
 
 
 import javax.swing.JFrame;
+
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowListener;
+import edu.neu.csye6200.av.AVSimulation;
 
 /**
  * A sample Autonomous Vehicle Abstract application class
@@ -29,6 +31,7 @@ public abstract class AVApp implements ActionListener, WindowListener {
 	 * Initialize the Graphical User Interface
 	 */
     public void initGUI() {
+    	AVSimulation.getInstance();
     	frame = new JFrame();
 		frame.setTitle("AVApp");
 

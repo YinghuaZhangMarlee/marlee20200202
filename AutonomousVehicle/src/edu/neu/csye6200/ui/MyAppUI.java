@@ -39,6 +39,7 @@ public class MyAppUI extends AVApp implements ActionListener {
 
 	private Simulation sim = null;
 	
+	
 	/**
 	 * Constructor
 	 */

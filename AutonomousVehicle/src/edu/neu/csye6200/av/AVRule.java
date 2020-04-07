@@ -1,6 +1,38 @@
 package edu.neu.csye6200.av;
-//AVRule  – Governs the movement of a Vehicle instance  within  the  road space 
-//(speed-up, slow-down, change lanes, or stop)
+
+import java.util.ArrayList;
+
 public class AVRule {
+
+	// first rule: if a vehicle meets blocks/vehicles, then move to right side
+	public void rightMoveRule(Road road) {
+		ArrayList<Vehicle> afterCaculateBlock = new ArrayList();
+
+		// judge whether each vehicles meet block, if it is then generate a position(
+		// move to right)
+		for (Vehicle vehicle : road.getVehicleList()) {
+
+			for (Block block : road.getBlockList()) {
+				if (vehicle.reachStopDistance(block.getBlockLocation()) && !vehicle.isStop()) {
+
+					if (!road.meetRightSideMargin(vehicle.getLocation()))
+						vehicle.getLocation().moveRight();
+					else {
+						if (!road.meetLeftSideMargin(vehicle.getLocation()))
+							vehicle.getLocation().moveLeft();
+						else
+							vehicle.stopMove();
+					}
+				}
+			}
+			
+//			if(vehicle.) {
+//				
+//			}
+			vehicle.moveOneStep();
+			
+			
+		}
+	}
 
 }
