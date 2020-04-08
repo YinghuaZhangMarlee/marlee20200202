@@ -10,12 +10,12 @@ public class AVSimulation {
 		
 		//generate vehicles
 		Vehicle v1 = new Vehicle();
-		Vehicle v2 = new Vehicle("Yellow", "AUDI", 4, new Location(0, 300), 10, 10);
-		Vehicle v3 = new Vehicle("Green", "FORD", 6, new Location(0, 480), 10, 10);
+		Vehicle v2 = new Vehicle("Yellow", "AUDI", 4, new Location(0, 300), 60, 100);
+		Vehicle v3 = new Vehicle("Green", "FORD", 6, new Location(0, 480), 80, 100);
 		
 		//generate blocks
-		Block b1 = new Block(5, 5);
-		Block b2 = new Block(6, 6);
+		Block b1 = new Block(800, 120);
+		Block b2 = new Block(1200, 300);
 		
 		//add vehicles into list
 		road.addVehicle(v1);

@@ -11,8 +11,10 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 
+import edu.neu.csye6200.av.AVRule;
 import edu.neu.csye6200.av.Road;
 import edu.neu.csye6200.av.Vehicle;
+
 
 @SuppressWarnings("deprecation")
 public class MyPanel extends JPanel implements Observer {
@@ -59,8 +61,8 @@ public class MyPanel extends JPanel implements Observer {
 		g2d.drawImage(car2, road.getVehicleList().get(1).getLocation().getxPosition(), road.getVehicleList().get(1).getLocation().getyPosition(), 100, 100, null);
 		g2d.drawImage(car3, road.getVehicleList().get(2).getLocation().getxPosition(), road.getVehicleList().get(2).getLocation().getyPosition(), 100, 100, null);
 		//	路障位置
-		g2d.drawImage(b2,800, 130, 100, 100, null);
-		g2d.drawImage(b3, 1200, 300, 100, 100, null);
+		g2d.drawImage(b2, road.getBlockList().get(0).getBlockLocation().getxPosition(), road.getBlockList().get(0).getBlockLocation().getyPosition(), 100, 100, null);
+		g2d.drawImage(b3, road.getBlockList().get(1).getBlockLocation().getxPosition(), road.getBlockList().get(1).getBlockLocation().getyPosition(), 100, 100, null);
 	//	g2d.drawImage(img, x, y, width, height, observer)
 		
 		g2d.setColor(c);
@@ -76,9 +78,12 @@ public class MyPanel extends JPanel implements Observer {
 		
 		if (arg instanceof Simulation) {
 			sim = (Simulation) arg;
-			for(Vehicle vehicle: Road.getInstance().getVehicleList()) {
-				vehicle.moveOneStep();
-			}
+			
+			AVRule rule = new AVRule();
+			rule.rightMoveRule(Road.getInstance());
+//			for(Vehicle vehicle: Road.getInstance().getVehicleList()) {
+//				vehicle.moveOneStep();
+//			}
 			this.repaint(); // Notify that we need to paint the canvas
 		}
 		

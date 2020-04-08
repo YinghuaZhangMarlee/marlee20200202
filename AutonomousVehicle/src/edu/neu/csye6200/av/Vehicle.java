@@ -17,7 +17,7 @@ public class Vehicle {
 		this.vehicleColor = "Red";
 		this.vehicleCompany = "Volkswagen";
 		this.vehicleSeating = 4;
-		this.location = new Location(0, 130);
+		this.location = new Location(0, 120);
 		this.speed = 0;
 		this.stopDistance = 10;
 		this.sensingOtherVehicles = new ArrayList<Vehicle>();
@@ -100,7 +100,7 @@ public class Vehicle {
 	
 	public boolean reachStopDistance(Location l) {
 		if(this.location.getyPosition() == l.getyPosition() && 
-				(this.location.getxPosition() + this.speed + this.stopDistance) > l.getxPosition()) 
+				((this.location.getxPosition() + this.speed + this.stopDistance) > l.getxPosition())) 
 			return true;
 		return false;
 	}
