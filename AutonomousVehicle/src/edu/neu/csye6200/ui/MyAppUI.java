@@ -9,12 +9,16 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.util.Observer;
 import java.util.logging.Logger;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import edu.neu.csye6200.av.AVRule;
+import edu.neu.csye6200.av.DefaultLeftMoveRule;
+import edu.neu.csye6200.av.DefaultRightMoveRule;
 
 
 /**
@@ -25,7 +29,6 @@ public class MyAppUI extends AVApp implements ActionListener {
 
     private Logger log = Logger.getLogger(MyAppUI.class.getName());
 	
-
 	private MyPanel myPanel;
     protected JPanel mainPanel;
     protected JPanel northPanel;
@@ -34,8 +37,7 @@ public class MyAppUI extends AVApp implements ActionListener {
 	private JButton pauseBtn;
 	private JButton stopBtn;
 
-	private JComboBox<String> ruleComboBox;
-	
+	private JComboBox<Object> ruleComboBox;
 
 	private Simulation sim = null;
 	
@@ -46,7 +48,7 @@ public class MyAppUI extends AVApp implements ActionListener {
 	@SuppressWarnings("deprecation")
 	public MyAppUI() {
 		
-		frame.setLocation(100,80);
+		frame.setLocation(100, 80);
 	 	frame.setSize(1600, 800);
 		frame.setTitle("MyAutonomous Vehicle");
 		
@@ -79,10 +81,11 @@ public class MyAppUI extends AVApp implements ActionListener {
 		//northPanel.setBackground(Color.BLUE); // Set the background blue
 		
 		JLabel ruleLbl = new JLabel("Rule:");
-		ruleComboBox = new JComboBox<String> ();
-		ruleComboBox.addItem("Rule 1"); // Rule 1
-		ruleComboBox.addItem("Rule 2"); // Rule 2
-		ruleComboBox.addItem("Rule 3"); // Rule 3
+		ruleComboBox = new JComboBox<Object> ();
+		ruleComboBox.addItem("");
+		ruleComboBox.addItem(new DefaultLeftMoveRule("DefaultLeftMoveRule"));
+		ruleComboBox.addItem(new DefaultRightMoveRule("DefaultRightMoveRule"));
+//		ruleComboBox.addItem("Rule 3"); // Rule 3
 		
 		ruleComboBox.addActionListener(this);
 		
@@ -129,7 +132,6 @@ public class MyAppUI extends AVApp implements ActionListener {
 			
 		});
 		
-		// Add everthing to the north panel
 		northPanel.add(ruleLbl);
 		northPanel.add(ruleComboBox);
 		
@@ -154,6 +156,11 @@ public class MyAppUI extends AVApp implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		log.info("We received an ActionEvent " + e);
+		if (e.getSource() == ruleComboBox) {
+			AVRule rule = (AVRule) ruleComboBox.getSelectedItem();
+			this.sim.setRule(rule);
+			System.out.println("ruleComboBox was pressed:" + rule);
+		}
 		//if (e.getActionCommand().equalsIgnoreCase("Start"))
 		//	System.out.println("Start was pressed");
 		if (e.getSource() == stopBtn) {

@@ -2,38 +2,18 @@ package edu.neu.csye6200.av;
 
 import java.util.ArrayList;
 
-public class AVRule {
+public abstract class AVRule {
 
-	// first rule: if a vehicle meets blocks/vehicles, then move to right side
-	public void rightMoveRule(Road road) {
-		ArrayList<Vehicle> afterCaculateBlock = new ArrayList();
-
-		// judge whether each vehicles meet block, if it is then generate a position(
-		// move to right)
-		for (Vehicle vehicle : road.getVehicleList()) {
-
-			for (Block block : road.getBlockList()) {
-				System.out.println("block position :" + block.getBlockLocation());
-				System.out.println("now position: " + vehicle.getLocation() + (vehicle.getLocation().getyPosition() == block.getBlockLocation().getyPosition()) +((vehicle.getLocation().getxPosition() + vehicle.getSpeed() + vehicle.getStopDistance()) > block.getBlockLocation().getxPosition()));
-				if (vehicle.reachStopDistance(block.getBlockLocation()) && !vehicle.isStop()) {
-					if (!road.meetRightSideMargin(vehicle.getLocation()))
-						vehicle.getLocation().moveRight();
-					else {
-						if (!road.meetLeftSideMargin(vehicle.getLocation()))
-							vehicle.getLocation().moveLeft();
-						else
-							vehicle.stopMove();
-					}
-				}
-			}
-			
-//			if(vehicle.) {
-//				
-//			}
-			vehicle.moveOneStep();
-			
-			
-		}
+	private String description;
+	
+	public AVRule(String description) {
+		this.description  = description;
+	}
+	
+	@Override
+	public String toString() {
+		return this.description;
 	}
 
+	public abstract void process(Road road);
 }

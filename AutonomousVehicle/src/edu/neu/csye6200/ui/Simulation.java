@@ -1,55 +1,66 @@
 package edu.neu.csye6200.ui;
 
 import java.util.Observable;
+import edu.neu.csye6200.av.*;
 
-public class Simulation extends Observable implements Runnable  {
+public class Simulation extends Observable implements Runnable {
 
 	private Thread thread = null; // the thread that runs my simulation
 	private boolean paused = false;
 	private boolean done = false; // set true to end the simulation loop
 	private int ctr = 0;
 	private boolean running = false; // set true if the simulation is running
-	
-	
+	private AVRule rule;
+
 	public void startSim() {
 		System.out.println("Starting the simulation");
-		if (thread != null) return; // A thread is already running
-		
+		if (thread != null)
+			return; // A thread is already running
+
 		thread = new Thread(this); // Create a worker thread
 		paused = false;
 		done = false; // reset the done flag.
 		ctr = 0; // reset the loop counter
 		thread.start();
-		
 	}
-	
-	
+
+	public AVRule getRule() {
+		return rule;
+	}
+
+	public void setRule(AVRule rule) {
+		this.rule = rule;
+	}
+
 	public void pauseSim() {
 		paused = !paused;
 		System.out.println("Pause the simulation: " + paused);
 	}
-	
+
 	public boolean isPaused() {
 		return paused;
 	}
-	
+
 	public boolean isPausable() {
-		if (!running) return false;
-		if (done) return false;
+		if (!running)
+			return false;
+		if (done)
+			return false;
 		return true;
 	}
-	
+
 	public boolean isRunning() {
 		return running;
 	}
-	
+
 	public void setRunning(boolean running) {
 		this.running = running;
 	}
-	
-	public void stopSim() {	
+
+	public void stopSim() {
 		System.out.println("Stop the simulation");
-		if (thread == null) return; // defensive coding in case the thread is null
+		if (thread == null)
+			return; // defensive coding in case the thread is null
 		done = true;
 	}
 
@@ -58,38 +69,39 @@ public class Simulation extends Observable implements Runnable  {
 		runSimLoop();
 		thread = null; // flag that the simulation thread is finished
 	}
-	
-    private void runSimLoop() {
-    	running = true;
-    	while(!done) {
-    		// do some simulation work
-    		if (!paused)
-    		    updateSim();
-    		sleep(500L); // A half second sleep
-    		
-    	}
-    	running = false;
-    }
+
+	private void runSimLoop() {
+		running = true;
+		while (!done) {
+			// do some simulation work
+			if (!paused)
+				updateSim();
+			sleep(500L); // A half second sleep
+
+		}
+		running = false;
+	}
+
 	/*
 	 * Make the current thread sleep a little
 	 */
-    private void sleep(long millis) {
-    	try {
+	private void sleep(long millis) {
+		try {
 			Thread.sleep(millis);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-    }
-    
-    // Allow access to the simulation data
-    public int getCtr() {
-    	return ctr;
-    }
-    
-    private void updateSim() {
-    	System.out.println("Updating the simualtion " + ctr++);
-    	setChanged();
-    	notifyObservers(this); // Send a copy of the simulation
-    }
-    
+	}
+
+	// Allow access to the simulation data
+	public int getCtr() {
+		return ctr;
+	}
+
+	private void updateSim() {
+		System.out.println("Updating the simualtion " + ctr++);
+		setChanged();
+		notifyObservers(this); // Send a copy of the simulation
+	}
+
 }

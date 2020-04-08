@@ -79,11 +79,11 @@ public class MyPanel extends JPanel implements Observer {
 		if (arg instanceof Simulation) {
 			sim = (Simulation) arg;
 			
-			AVRule rule = new AVRule();
-			rule.rightMoveRule(Road.getInstance());
-//			for(Vehicle vehicle: Road.getInstance().getVehicleList()) {
-//				vehicle.moveOneStep();
-//			}
+			if(sim.getRule() != null)
+				sim.getRule().process(Road.getInstance());
+//			AVRule rule = new AVRule();
+//			rule.rightMoveRule(Road.getInstance());
+
 			this.repaint(); // Notify that we need to paint the canvas
 		}
 		

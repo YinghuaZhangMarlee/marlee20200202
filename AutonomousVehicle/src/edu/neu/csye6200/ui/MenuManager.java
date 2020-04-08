@@ -18,7 +18,7 @@ public class MenuManager implements ActionListener {
 
 	private String id = "";
 	private String text = "";
-	static int counter=0;
+	static int counter = 0;
 	private JMenuBar menuBar = null;
 	private AVApp application = null;
 
