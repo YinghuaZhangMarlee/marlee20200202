@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 import edu.neu.csye6200.av.AVRule;
 import edu.neu.csye6200.av.DefaultLeftMoveRule;
 import edu.neu.csye6200.av.DefaultRightMoveRule;
+import edu.neu.csye6200.av.DecreaseSpeedAndTurnRightRule;
 
 
 /**
@@ -85,7 +86,7 @@ public class MyAppUI extends AVApp implements ActionListener {
 		ruleComboBox.addItem("");
 		ruleComboBox.addItem(new DefaultLeftMoveRule("DefaultLeftMoveRule"));
 		ruleComboBox.addItem(new DefaultRightMoveRule("DefaultRightMoveRule"));
-//		ruleComboBox.addItem("Rule 3"); // Rule 3
+		ruleComboBox.addItem(new DecreaseSpeedAndTurnRightRule("DecreaseSpeedAndTurnRightRule"));
 		
 		ruleComboBox.addActionListener(this);
 		

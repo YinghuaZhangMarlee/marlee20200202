@@ -10,6 +10,7 @@ public class Vehicle {
 	private int vehicleSeating;
 	private Location location;
 	private int speed; // m/s
+	private boolean speedDecrease = false;
 	private int stopDistance; // m
 	private final int imageLength = 100;
 	private List<Vehicle> sensingOtherVehicles;
@@ -23,7 +24,7 @@ public class Vehicle {
 		this.stopDistance = 10;
 		this.sensingOtherVehicles = new ArrayList<Vehicle>();
 	}
-	
+
 	public Vehicle(String color, String company, int seating, Location location, int speed, int instance) {
 		this.vehicleColor = color;
 		this.vehicleCompany = company;
@@ -89,43 +90,46 @@ public class Vehicle {
 	public void setSensingOtherVehicles(List<Vehicle> sensingOtherVehicles) {
 		this.sensingOtherVehicles = sensingOtherVehicles;
 	}
-	
+
+	public boolean isSpeedDecrease() {
+		return speedDecrease;
+	}
+
+	public void setSpeedDecrease(boolean speedDecrease) {
+		this.speedDecrease = speedDecrease;
+	}
+
 	public void addSensingOtherVehicles(Vehicle v) {
 		this.sensingOtherVehicles.add(v);
 	}
-	
+
 	public void deleteSensingOtherVehicles(Vehicle v) {
 		this.sensingOtherVehicles.remove(v);
 	}
-	
-	
+
 	public boolean reachStopDistance(Location l) {
-		if(this.location.getyPosition() == l.getyPosition() && 
-				((this.location.getxPosition() + this.speed + this.stopDistance + this.imageLength) > l.getxPosition())) 
+		if (this.location.getyPosition() == l.getyPosition()
+				&& ((this.location.getxPosition() + this.speed + this.stopDistance + this.imageLength) > l
+						.getxPosition()))
 			return true;
 		return false;
 	}
-	
-	public boolean crashOtherVehicles() {
-//		for(Vehicle vehicle: this.sensingOtherVehicles) {
-//			if(vehicle.isStop() && this.location.getxPosition() + this.speed + this.stopDistance 
-//					> vehicle.getLocation().getyPosition()) {
-//				
-//			}
-//		}
-		return true;
-	}
-	
+
 	public void stopMove() {
 		this.speed = 0;
 	}
-	
+
 	public boolean isStop() {
 		return (this.speed == 0);
 	}
-	
+
 	public void moveOneStep() {
 		this.location.setxPosition(this.location.getxPosition() + this.speed);
+	}
+
+	public void decreaseHalfSpeed() {
+		this.speed /= 2;
+		this.speedDecrease = true;
 	}
 
 }
