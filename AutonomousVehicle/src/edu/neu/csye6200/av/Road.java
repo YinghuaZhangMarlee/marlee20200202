@@ -6,21 +6,21 @@ import java.util.List;
 public class Road {
 
 	private static Road roadInstance = new Road();
-	private int yMarginLimit; // in fact, it is the lane number
-	private int xMarginLimit;
+	private int downLimit;
+	private int upLimit;
 	private List<Vehicle> vehicleList;
 	private List<Block> blockList;
 
 	public Road() {
-		this.yMarginLimit = 800;
-		this.xMarginLimit = 1600;
+		this.downLimit = 660;
+		this.upLimit = 130;
 		this.vehicleList = new ArrayList<Vehicle>();
 		this.blockList = new ArrayList<Block>();
 	}
 
-	public Road(int laneNum, int limit) {
-		this.yMarginLimit = laneNum;
-		this.xMarginLimit = limit;
+	public Road(int downLimit, int upLimit) {
+		this.downLimit = downLimit;
+		this.upLimit = upLimit;
 		this.vehicleList = new ArrayList<Vehicle>();
 		this.blockList = new ArrayList<Block>();
 	}
@@ -29,20 +29,20 @@ public class Road {
 		return roadInstance;
 	}
 
-	public int getyMarginLimit() {
-		return yMarginLimit;
+	public int getDownLimit() {
+		return downLimit;
 	}
 
-	public void setyMarginLimit(int yMarginLimit) {
-		this.yMarginLimit = yMarginLimit;
+	public void setDownLimit(int downLimit) {
+		this.downLimit = downLimit;
 	}
 
-	public int getxMarginLimit() {
-		return xMarginLimit;
+	public int getUpLimit() {
+		return upLimit;
 	}
 
-	public void setxMarginLimit(int xMarginLimit) {
-		this.xMarginLimit = xMarginLimit;
+	public void setUpLimit(int upLimit) {
+		this.upLimit = upLimit;
 	}
 
 	public List<Vehicle> getVehicleList() {
@@ -66,9 +66,7 @@ public class Road {
 	}
 
 	private boolean checkValidLocation(Location l) {
-		if(l.getxPosition() < 0 || l.getxPosition() > this.xMarginLimit)
-			return false;
-		if(l.getyPosition() < 0 || l.getyPosition() > this.yMarginLimit)
+		if(l.getyPosition() < this.upLimit || l.getyPosition() > this.downLimit)
 			return false;
 		return true;
 	}
@@ -98,13 +96,13 @@ public class Road {
 	}
 	
 	public boolean meetRightSideMargin(Location l) {
-		if(l.getyPosition() == this.yMarginLimit)
+		if(l.getyPosition() == this.downLimit)
 			return true;
 		return false;
 	}
 	
 	public boolean meetLeftSideMargin(Location l) {
-		if(l.getyPosition() == 0)
+		if(l.getyPosition() == this.upLimit)
 			return true;
 		return false;
 	}

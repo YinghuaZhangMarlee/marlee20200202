@@ -109,8 +109,9 @@ public class Vehicle {
 
 	public boolean reachStopDistance(Location l) {
 		if (this.location.getyPosition() == l.getyPosition()
-				&& ((this.location.getxPosition() + this.speed + this.stopDistance + this.imageLength) > l
-						.getxPosition()))
+				&& (this.location.getxPosition() + this.speed + this.stopDistance + this.imageLength > l
+						.getxPosition() && (this.location.getxPosition() + this.speed + this.stopDistance + this.imageLength < l
+								.getxPosition() + 2 * this.imageLength)))
 			return true;
 		return false;
 	}
