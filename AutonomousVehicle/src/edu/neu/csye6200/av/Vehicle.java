@@ -11,14 +11,15 @@ public class Vehicle {
 	private Location location;
 	private int speed; // m/s
 	private int stopDistance; // m
+	private final int imageLength = 100;
 	private List<Vehicle> sensingOtherVehicles;
 
 	public Vehicle() {
 		this.vehicleColor = "Red";
 		this.vehicleCompany = "Volkswagen";
 		this.vehicleSeating = 4;
-		this.location = new Location(0, 120);
-		this.speed = 0;
+		this.location = new Location(0, 130);
+		this.speed = 30;
 		this.stopDistance = 10;
 		this.sensingOtherVehicles = new ArrayList<Vehicle>();
 	}
@@ -100,7 +101,7 @@ public class Vehicle {
 	
 	public boolean reachStopDistance(Location l) {
 		if(this.location.getyPosition() == l.getyPosition() && 
-				((this.location.getxPosition() + this.speed + this.stopDistance) > l.getxPosition())) 
+				((this.location.getxPosition() + this.speed + this.stopDistance + this.imageLength) > l.getxPosition())) 
 			return true;
 		return false;
 	}

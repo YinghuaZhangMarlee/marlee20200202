@@ -14,7 +14,7 @@ public class AVSimulation {
 		Vehicle v3 = new Vehicle("Green", "FORD", 6, new Location(0, 480), 80, 100);
 		
 		//generate blocks
-		Block b1 = new Block(800, 120);
+		Block b1 = new Block(800, 130);
 		Block b2 = new Block(1200, 300);
 		
 		//add vehicles into list
