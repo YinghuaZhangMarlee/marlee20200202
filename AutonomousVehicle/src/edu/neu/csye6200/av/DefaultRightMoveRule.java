@@ -18,11 +18,7 @@ public class DefaultRightMoveRule extends AVRule {
 		for (Vehicle vehicle : road.getVehicleList()) {
 
 			for (Block block : road.getBlockList()) {
-//				System.out.println("block position :" + block.getBlockLocation());
-//				System.out.println("now position: " + vehicle.getLocation()
-//						+ (vehicle.getLocation().getyPosition() == block.getBlockLocation().getyPosition())
-//						+ ((vehicle.getLocation().getxPosition() + vehicle.getSpeed()
-//								+ vehicle.getStopDistance()) > block.getBlockLocation().getxPosition()));
+
 				if (vehicle.reachStopDistance(block.getBlockLocation()) && !vehicle.isStop()) {
 					if (!road.meetRightSideMargin(vehicle.getLocation()))
 						vehicle.getLocation().moveRight();

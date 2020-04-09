@@ -2,7 +2,7 @@ package edu.neu.csye6200.av;
 
 public class Location {
 
-	private final double laneLen = 170;
+	public final int laneLen = 170;
 	private int xPosition;
 	private int yPosition;
 	

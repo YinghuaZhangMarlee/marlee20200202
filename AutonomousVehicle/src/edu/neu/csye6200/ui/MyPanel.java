@@ -81,8 +81,6 @@ public class MyPanel extends JPanel implements Observer {
 			
 			if(sim.getRule() != null)
 				sim.getRule().process(Road.getInstance());
-//			AVRule rule = new AVRule();
-//			rule.rightMoveRule(Road.getInstance());
 
 			this.repaint(); // Notify that we need to paint the canvas
 		}

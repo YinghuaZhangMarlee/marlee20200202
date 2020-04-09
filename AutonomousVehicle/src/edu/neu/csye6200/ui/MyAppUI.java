@@ -17,8 +17,10 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import edu.neu.csye6200.av.AVRule;
+import edu.neu.csye6200.av.AVSimulation;
 import edu.neu.csye6200.av.DefaultLeftMoveRule;
 import edu.neu.csye6200.av.DefaultRightMoveRule;
+import edu.neu.csye6200.av.Road;
 import edu.neu.csye6200.av.DecreaseSpeedAndTurnRightRule;
 
 
@@ -37,6 +39,7 @@ public class MyAppUI extends AVApp implements ActionListener {
 	private JButton startBtn;
 	private JButton pauseBtn;
 	private JButton stopBtn;
+	private JButton resetBtn;
 
 	private JComboBox<Object> ruleComboBox;
 
@@ -128,6 +131,7 @@ public class MyAppUI extends AVApp implements ActionListener {
 				System.out.println("Stop was pressed");
 				sim.stopSim();
 				sim.setRunning(false); // Force this off early, because we're about to reset the buttons
+				AVSimulation.getInstance().resetInstance();
 				resetButtons();
 			}
 			
@@ -162,8 +166,7 @@ public class MyAppUI extends AVApp implements ActionListener {
 			this.sim.setRule(rule);
 			System.out.println("ruleComboBox was pressed:" + rule);
 		}
-		//if (e.getActionCommand().equalsIgnoreCase("Start"))
-		//	System.out.println("Start was pressed");
+
 		if (e.getSource() == stopBtn) {
 			System.out.println("Stop was pressed");
 		}

@@ -109,9 +109,9 @@ public class Vehicle {
 
 	public boolean reachStopDistance(Location l) {
 		if (this.location.getyPosition() == l.getyPosition()
-				&& (this.location.getxPosition() + this.speed + this.stopDistance + this.imageLength > l
-						.getxPosition() && (this.location.getxPosition() + this.speed + this.stopDistance + this.imageLength < l
-								.getxPosition() + 2 * this.imageLength)))
+				&& (this.location.getxPosition() + this.speed + this.stopDistance + this.imageLength > l.getxPosition()
+						&& (this.location.getxPosition() + this.speed + this.stopDistance
+								+ this.imageLength < l.getxPosition() + 2 * this.imageLength)))
 			return true;
 		return false;
 	}
@@ -131,6 +131,28 @@ public class Vehicle {
 	public void decreaseHalfSpeed() {
 		this.speed /= 2;
 		this.speedDecrease = true;
+	}
+
+	public boolean cashOtherVehicleAfterMoveRight(Location l) {
+		int afterYPosition = this.getLocation().getyPosition() + this.getLocation().laneLen;
+
+		if (afterYPosition == l.getyPosition()
+				&& (this.location.getxPosition() + this.speed + this.stopDistance + this.imageLength > l.getxPosition()
+						&& (this.location.getxPosition() + this.speed + this.stopDistance
+								+ this.imageLength < l.getxPosition() + 2 * this.imageLength)))
+			return false;
+
+		return true;
+	}
+
+	public boolean cashOtherVehicleAfterMoveLeft(Location l) {
+		int afterYPosition = this.getLocation().getyPosition() - this.getLocation().laneLen;
+		if (afterYPosition == l.getyPosition()
+				&& (this.location.getxPosition() + this.speed + this.stopDistance + this.imageLength > l.getxPosition()
+						&& (this.location.getxPosition() + this.speed + this.stopDistance
+								+ this.imageLength < l.getxPosition() + 2 * this.imageLength)))
+			return false;
+		return true;
 	}
 
 }
