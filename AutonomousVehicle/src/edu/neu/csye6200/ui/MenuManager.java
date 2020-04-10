@@ -91,20 +91,20 @@ public class MenuManager implements ActionListener {
 		fileMenu.addSeparator();
 		createMenuItem(fileMenu, "Exit", 'x', "Exit the application", new ExitAction(application));
 
-		JMenu editMenu = addMenu(menuBar, "core.edit", "Edit", 'E', "Edit Menu Actions");
-		createMenuItem(editMenu, "Undo", 'U', "Undo", this);
-		createMenuItem(editMenu, "Redo", 'U', "Undo", this);
-		editMenu.addSeparator();
-		createMenuItem("core.edit", "Cut", KeyEvent.VK_X, ActionEvent.CTRL_MASK, "Cut", this);
-		createMenuItem("core.edit", "Copy", KeyEvent.VK_C, ActionEvent.CTRL_MASK, "Copy", this);
-		createMenuItem("core.edit", "Paste", KeyEvent.VK_V, ActionEvent.CTRL_MASK, "Paste", this);
-		editMenu.addSeparator();
-		createMenuItem(editMenu, "Delete", 'D', "Delete", this);
+//		JMenu editMenu = addMenu(menuBar, "core.edit", "Edit", 'E', "Edit Menu Actions");
+//		createMenuItem(editMenu, "Undo", 'U', "Undo", this);
+//		createMenuItem(editMenu, "Redo", 'U', "Undo", this);
+//		editMenu.addSeparator();
+//		createMenuItem("core.edit", "Cut", KeyEvent.VK_X, ActionEvent.CTRL_MASK, "Cut", this);
+//		createMenuItem("core.edit", "Copy", KeyEvent.VK_C, ActionEvent.CTRL_MASK, "Copy", this);
+//		createMenuItem("core.edit", "Paste", KeyEvent.VK_V, ActionEvent.CTRL_MASK, "Paste", this);
+//		editMenu.addSeparator();
+//		createMenuItem(editMenu, "Delete", 'D', "Delete", this);
 
 		JMenu windowMenu = addMenu(menuBar, "core.window", "Window", 'W', "PanelWindow Menu Actions");
 
-		createMenuItem(windowMenu, "Close window", '*', "Close the active window", this);
-		createMenuItem(windowMenu, "Maximize window", '*', "Expand the active window", this);
+		createMenuItem(windowMenu, "Close window", '*', "Close the active window", new ExitAction(application));
+		createMenuItem(windowMenu, "Maximize window", '*', "Expand the active window", new MaxAction(application));
 		createMenuItem("core.window", "Undock window", 
 				KeyEvent.VK_D, ActionEvent.ALT_MASK + ActionEvent.SHIFT_MASK,
 				"Move the active window pane into a detached window", this);
@@ -419,6 +419,21 @@ public class MenuManager implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
 			application.exit();
+		}
+	}	
+	
+	class MaxAction extends AbstractAction {
+
+		private static final long serialVersionUID = -9197382694558803756L;
+		private AVApp application;
+
+		protected MaxAction(AVApp application) {
+			super("MaxAction");
+			this.application = application;
+		}
+
+		public void actionPerformed(ActionEvent e) {
+			application.maxWindow();
 		}
 	}	
 
