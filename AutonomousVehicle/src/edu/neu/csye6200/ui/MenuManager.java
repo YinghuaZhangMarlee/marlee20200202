@@ -107,7 +107,7 @@ public class MenuManager implements ActionListener {
 		createMenuItem(windowMenu, "Maximize window", '*', "Expand the active window", new MaxAction(application));
 		createMenuItem("core.window", "Undock window", 
 				KeyEvent.VK_D, ActionEvent.ALT_MASK + ActionEvent.SHIFT_MASK,
-				"Move the active window pane into a detached window", this);
+				"Move the active window pane into a detached window", new UndockAction(application));
 		windowMenu.addSeparator();
 
 		JMenu helpMenu = addMenu(menuBar, "core.help", "Help", 'H', "Help Menu Actions");
@@ -434,6 +434,21 @@ public class MenuManager implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
 			application.maxmizedWindow();
+		}
+	}	
+	
+	class UndockAction extends AbstractAction {
+
+		private static final long serialVersionUID = -9197382694558803756L;
+		private AVApp application;
+
+		protected UndockAction(AVApp application) {
+			super("UndockAction");
+			this.application = application;
+		}
+
+		public void actionPerformed(ActionEvent e) {
+			application.undockWindow();
 		}
 	}	
 

@@ -2,11 +2,13 @@ package edu.neu.csye6200.ui;
 
 
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
-
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import java.awt.BorderLayout;
+import java.awt.Rectangle;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowListener;
 import edu.neu.csye6200.av.AVSimulation;
@@ -83,11 +85,31 @@ public abstract class AVApp implements ActionListener, WindowListener {
     public void maxmizedWindow() {
     	frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
+    
+    public void undockWindow() {
+    	frame.setExtendedState(JFrame.ICONIFIED);
+    }
 
     /**
      * Override this method to show a About Dialog
      */
     public void showHelp() {
+    	//public void actionPerformed(ActionEvent e) {// 实现ActionListener接口的actionPerformed接口。
+            JDialog frame = new JDialog();//构造一个新的JFrame，作为新窗口。
+            frame.setBounds(// 让新窗口与SwingTest窗口示例错开50像素。
+                    new Rectangle(500,500,500,500)
+                );
+            JLabel jl = new JLabel();// 注意类名别写错了。
+        
+            frame.getContentPane().add(jl);
+            jl.setText("<html><p>User Guidance:</p><p></p><p>1. There are 4 different rules for you to choose</p><p>*Turn Left and stop</p><p> *Turn right and stop</p><p>*Turn left and slow down</p><p>*Turn right and slow down</p><p></p><p>2.Press Start Button to process</p><p></p><p>3. Press Pause Button to pause all cars</p><p>* press again to let all cars continue to move</p><p></p><p>4. Press Stop Button to end process</p><p> </p><p>5. The location of cars and blocks will change randomly when process restart</p></html>");
+            jl.setVerticalAlignment(JLabel.TOP);
+            jl.setHorizontalAlignment(JLabel.CENTER);
+            
+         //APPLICATION_MODAL
+            frame.setModalityType(JDialog.ModalityType.APPLICATION_MODAL);    
+            frame.setVisible(true);
+        }
+   
     }
 	
-}

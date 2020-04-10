@@ -39,6 +39,7 @@ public class AVSimulation {
 		// generate vehicles
 //		Vehicle v1 = new Vehicle("Yellow", "TEST", 4, new Location(300, 130), 30, 10);
 //		Vehicle v2 = new Vehicle("Yellow", "AUDI", 4, new Location(200, 300), 60, 100);
+//		Vehicle v3 = new Vehicle("Yellow", "AUDI", 4, new Location(100, 300), 80, 100);
 		Vehicle v1 = new Vehicle("Yellow", "TEST", 4, new Location(xPositionList.get(0), 130), 30, 10);
 		Vehicle v2 = new Vehicle("Yellow", "AUDI", 4, new Location(xPositionList.get(1), 300), 60, 100);
 		Vehicle v3 = new Vehicle("Green", "FORD", 6, new Location(xPositionList.get(2), 480), 80, 100);
