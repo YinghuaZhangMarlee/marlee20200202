@@ -1,6 +1,6 @@
 package edu.neu.csye6200.av;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class TurnRightDecreaseSpeedRule extends AVRule{
 	
@@ -8,13 +8,19 @@ public class TurnRightDecreaseSpeedRule extends AVRule{
 		super(description);
 	}
 
-	public boolean exeSelfRule(Road road, Vehicle vehicle) {
+	public boolean exeSelfRule(Road road, Vehicle vehicle, List<Location> locations) {
 		if(road.meetRightSideMargin(vehicle.getLocation())) {
 			return false;
 		}
+
 		vehicle.turnRight();
 		vehicle.decreaseHalfSpeed();
-		vehicle.moveOneStep();
+		if(vehicle.isCashNow(locations)) {
+			vehicle.turnLeft();
+			vehicle.accelerateDoubleSpeed();
+			return false;
+		}
+		
 		System.out.println("move self succeed");
 		return true;
 	}

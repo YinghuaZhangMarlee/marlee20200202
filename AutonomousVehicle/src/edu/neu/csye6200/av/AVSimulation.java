@@ -37,11 +37,15 @@ public class AVSimulation {
 		List<Integer> xPositionList = new ArrayList<> (xPositionSet);
 
 		// generate vehicles
+//		Vehicle v1 = new Vehicle("Yellow", "TEST", 4, new Location(300, 130), 30, 10);
+//		Vehicle v2 = new Vehicle("Yellow", "AUDI", 4, new Location(200, 300), 60, 100);
 		Vehicle v1 = new Vehicle("Yellow", "TEST", 4, new Location(xPositionList.get(0), 130), 30, 10);
 		Vehicle v2 = new Vehicle("Yellow", "AUDI", 4, new Location(xPositionList.get(1), 300), 60, 100);
 		Vehicle v3 = new Vehicle("Green", "FORD", 6, new Location(xPositionList.get(2), 480), 80, 100);
 
 		// generate blocks
+//		Block b1 = new Block(600, 130);
+//		Block b2 = new Block(650, 300);
 		Block b1 = new Block(xPositionList.get(3), 130);
 		Block b2 = new Block(xPositionList.get(4), 300);
 

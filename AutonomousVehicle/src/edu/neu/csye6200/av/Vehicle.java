@@ -10,6 +10,7 @@ public class Vehicle {
 	private int vehicleSeating;
 	private Location location;
 	private int speed; // m/s
+	private boolean isStop = false;
 	private boolean speedDecrease = false;
 	private int stopDistance; // m
 	private final int imageLength = 100;
@@ -76,6 +77,22 @@ public class Vehicle {
 		this.speed = speed;
 	}
 
+	public boolean isStop() {
+		return isStop;
+	}
+
+	public void setStop(boolean isStop) {
+		this.isStop = isStop;
+	}
+
+	public boolean isSpeedDecrease() {
+		return speedDecrease;
+	}
+
+	public void setSpeedDecrease(boolean speedDecrease) {
+		this.speedDecrease = speedDecrease;
+	}
+
 	public int getStopDistance() {
 		return stopDistance;
 	}
@@ -92,86 +109,66 @@ public class Vehicle {
 		this.sensingOtherVehicles = sensingOtherVehicles;
 	}
 
-	public boolean isSpeedDecrease() {
-		return speedDecrease;
+	public int getImageLength() {
+		return imageLength;
 	}
 
-	public void setSpeedDecrease(boolean speedDecrease) {
-		this.speedDecrease = speedDecrease;
+	public int getLaneLen() {
+		return laneLen;
 	}
-
+	
 	public void addSensingOtherVehicles(Vehicle v) {
 		this.sensingOtherVehicles.add(v);
 	}
 
-	public void deleteSensingOtherVehicles(Vehicle v) {
-		this.sensingOtherVehicles.remove(v);
-	}
 
-	public boolean reachStopDistance(Location l) {
-		if (this.location.getyPosition() == l.getyPosition()
-				&& (this.location.getxPosition() + this.speed + this.stopDistance + this.imageLength > l.getxPosition()
-						&& (this.location.getxPosition() + this.speed + this.stopDistance
-								+ this.imageLength < l.getxPosition() + 2 * this.imageLength)))
-			return true;
-		return false;
-	}
-
-	public void stopMove() {
-		this.speed = 0;
-	}
-
-	public boolean isStop() {
-		return (this.speed == 0);
-	}
-
+	
+	
 	public void moveOneStep() {
 		this.location.setxPosition(this.location.getxPosition() + this.speed);
+	}
+	
+	public void moveBackOneStep() {
+		this.location.setxPosition(this.location.getxPosition() - this.speed);
 	}
 
 	public void decreaseHalfSpeed() {
 		this.speed /= 2;
 		this.speedDecrease = true;
 	}
-
-	public boolean cashOtherVehicleAfterMoveRight(Location l) {
-		int afterYPosition = this.getLocation().getyPosition() + this.laneLen;
-
-		if (afterYPosition == l.getyPosition()
-				&& (this.location.getxPosition() + this.speed + this.stopDistance + this.imageLength > l.getxPosition()
-						&& (this.location.getxPosition() + this.speed + this.stopDistance
-								+ this.imageLength < l.getxPosition() + 2 * this.imageLength)))
-			return false;
-
-		return true;
-	}
-
-	public boolean cashOtherVehicleAfterMoveLeft(Location l) {
-		int afterYPosition = this.getLocation().getyPosition() - this.laneLen;
-		if (afterYPosition == l.getyPosition()
-				&& (this.location.getxPosition() + this.speed + this.stopDistance + this.imageLength > l.getxPosition()
-						&& (this.location.getxPosition() + this.speed + this.stopDistance
-								+ this.imageLength < l.getxPosition() + 2 * this.imageLength)))
-			return false;
-		return true;
-	}
 	
-	public boolean isCashNextSecond(List<Location> locations) {
-		for(Location l: locations) {
-			if(this.reachStopDistance(l)) {
-				System.out.println("cash, now:" + this.getLocation() + ", block: " + l);
+	public void accelerateDoubleSpeed() {
+		this.speed *= 2;
+	}
+
+	private boolean reachStopDistanceNow(Location l) {
+		System.out.println("now: " + this.getLocation() + ", l: " + l);
+		
+		int y = this.location.getyPosition();
+		int x = this.location.getxPosition();
+		
+		if (y == l.getyPosition())
+			if((x + this.stopDistance > l.getxPosition() && x + this.imageLength < l.getxPosition() + this.imageLength)
+				|| (x + this.imageLength + this.stopDistance > l.getxPosition() && x + this.imageLength + this.stopDistance < l.getxPosition() + this.imageLength))
 				return true;
-			}
+		return false;
+	}
+
+	
+	public boolean isCashNow(List<Location> locations) {
+		for (Location l : locations) {
+			if (this.reachStopDistanceNow(l))
+				return true;
 		}
 		return false;
 	}
-	
+
 	public void turnLeft() {
-		this.location.setyPosition(this.location.getyPosition()-this.laneLen);
+		this.location.setyPosition(this.location.getyPosition() - this.laneLen);
 	}
-	
+
 	public void turnRight() {
-		this.location.setyPosition(this.location.getyPosition()+this.laneLen);
+		this.location.setyPosition(this.location.getyPosition() + this.laneLen);
 	}
 
 }
