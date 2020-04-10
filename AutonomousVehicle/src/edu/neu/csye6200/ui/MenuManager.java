@@ -433,7 +433,7 @@ public class MenuManager implements ActionListener {
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			application.maxWindow();
+			application.maxmizedWindow();
 		}
 	}	
 

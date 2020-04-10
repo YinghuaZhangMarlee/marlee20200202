@@ -80,7 +80,7 @@ public abstract class AVApp implements ActionListener, WindowListener {
     	System.exit(0);
     }
     
-    public void maxWindow() {
+    public void maxmizedWindow() {
     	frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
