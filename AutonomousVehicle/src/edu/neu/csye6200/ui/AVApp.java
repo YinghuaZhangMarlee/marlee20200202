@@ -76,6 +76,7 @@ public abstract class AVApp implements ActionListener, WindowListener {
      * Shut down the application
      */
     public void exit() {
+    	frame.setVisible(false);
     	frame.dispose();
     	System.exit(0);
     }
