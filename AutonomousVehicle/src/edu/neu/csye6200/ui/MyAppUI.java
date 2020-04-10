@@ -18,10 +18,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import edu.neu.csye6200.av.AVRule;
 import edu.neu.csye6200.av.AVSimulation;
-import edu.neu.csye6200.av.DefaultLeftMoveRule;
-import edu.neu.csye6200.av.DefaultRightMoveRule;
+import edu.neu.csye6200.av.LeftMoveRule;
+import edu.neu.csye6200.av.RightMoveRule;
 import edu.neu.csye6200.av.Road;
-import edu.neu.csye6200.av.DecreaseSpeedAndTurnRightRule;
+import edu.neu.csye6200.av.TurnLeftDecreaseSpeedRule;
+import edu.neu.csye6200.av.TurnRightDecreaseSpeedRule;
 
 
 /**
@@ -87,9 +88,10 @@ public class MyAppUI extends AVApp implements ActionListener {
 		JLabel ruleLbl = new JLabel("Rule:");
 		ruleComboBox = new JComboBox<Object> ();
 		ruleComboBox.addItem("");
-		ruleComboBox.addItem(new DefaultLeftMoveRule("DefaultLeftMoveRule"));
-		ruleComboBox.addItem(new DefaultRightMoveRule("DefaultRightMoveRule"));
-		ruleComboBox.addItem(new DecreaseSpeedAndTurnRightRule("DecreaseSpeedAndTurnRightRule"));
+		ruleComboBox.addItem(new LeftMoveRule("LeftMoveRule"));
+		ruleComboBox.addItem(new RightMoveRule("RightMoveRule"));
+		ruleComboBox.addItem(new TurnLeftDecreaseSpeedRule("TurnLefttDecreaseSpeedRule"));
+		ruleComboBox.addItem(new TurnRightDecreaseSpeedRule("TurnRightDecreaseSpeedRule"));
 		
 		ruleComboBox.addActionListener(this);
 		
@@ -132,6 +134,7 @@ public class MyAppUI extends AVApp implements ActionListener {
 				sim.stopSim();
 				sim.setRunning(false); // Force this off early, because we're about to reset the buttons
 				AVSimulation.getInstance().resetInstance();
+				myPanel.autoUpdate();
 				resetButtons();
 			}
 			

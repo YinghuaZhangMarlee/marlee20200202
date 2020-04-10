@@ -83,7 +83,11 @@ public class Road {
 
 		if (!existFlag && this.checkValidLocation(v.getLocation())) {
 			for (Vehicle vehicle : this.vehicleList) {
+				if(vehicle.getVehicleCompany() == v.getVehicleCompany())
+					continue;
 				vehicle.addSensingOtherVehicles(v);
+				v.addSensingOtherVehicles(vehicle);
+				System.out.println(vehicle.getLocation() + " add sensing vehicle succeed:" + v.getLocation());
 			}
 
 			this.vehicleList.add(v);

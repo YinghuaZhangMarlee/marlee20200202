@@ -87,7 +87,9 @@ public class MyPanel extends JPanel implements Observer {
 		
 	}
 	
-	
+	public void autoUpdate() {
+		this.repaint(); 
+	}
 	
 	
 	

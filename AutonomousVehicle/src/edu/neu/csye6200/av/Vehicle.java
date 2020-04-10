@@ -13,6 +13,7 @@ public class Vehicle {
 	private boolean speedDecrease = false;
 	private int stopDistance; // m
 	private final int imageLength = 100;
+	public final int laneLen = 170;
 	private List<Vehicle> sensingOtherVehicles;
 
 	public Vehicle() {
@@ -134,7 +135,7 @@ public class Vehicle {
 	}
 
 	public boolean cashOtherVehicleAfterMoveRight(Location l) {
-		int afterYPosition = this.getLocation().getyPosition() + this.getLocation().laneLen;
+		int afterYPosition = this.getLocation().getyPosition() + this.laneLen;
 
 		if (afterYPosition == l.getyPosition()
 				&& (this.location.getxPosition() + this.speed + this.stopDistance + this.imageLength > l.getxPosition()
@@ -146,13 +147,31 @@ public class Vehicle {
 	}
 
 	public boolean cashOtherVehicleAfterMoveLeft(Location l) {
-		int afterYPosition = this.getLocation().getyPosition() - this.getLocation().laneLen;
+		int afterYPosition = this.getLocation().getyPosition() - this.laneLen;
 		if (afterYPosition == l.getyPosition()
 				&& (this.location.getxPosition() + this.speed + this.stopDistance + this.imageLength > l.getxPosition()
 						&& (this.location.getxPosition() + this.speed + this.stopDistance
 								+ this.imageLength < l.getxPosition() + 2 * this.imageLength)))
 			return false;
 		return true;
+	}
+	
+	public boolean isCashNextSecond(List<Location> locations) {
+		for(Location l: locations) {
+			if(this.reachStopDistance(l)) {
+				System.out.println("cash, now:" + this.getLocation() + ", block: " + l);
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public void turnLeft() {
+		this.location.setyPosition(this.location.getyPosition()-this.laneLen);
+	}
+	
+	public void turnRight() {
+		this.location.setyPosition(this.location.getyPosition()+this.laneLen);
 	}
 
 }

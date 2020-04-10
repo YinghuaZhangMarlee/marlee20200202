@@ -27,15 +27,17 @@ public class AVSimulation {
 			int x = rand.nextInt(1200);
 			boolean flag = true;
 			for(int num: xPositionSet) {
-				if(num+100 < x || num -100 > x)
-					flag = true;
+				//// using 110 instead of 100 for easier visible
+				if((num+110>x && x>num) || (x+110>num && num>x))
+					flag = false;
 			}
-			xPositionSet.add(x);
+			if(flag)
+				xPositionSet.add(x);
 		}
 		List<Integer> xPositionList = new ArrayList<> (xPositionSet);
 
 		// generate vehicles
-		Vehicle v1 = new Vehicle("Yellow", "AUDI", 4, new Location(xPositionList.get(0), 130), 30, 10);
+		Vehicle v1 = new Vehicle("Yellow", "TEST", 4, new Location(xPositionList.get(0), 130), 30, 10);
 		Vehicle v2 = new Vehicle("Yellow", "AUDI", 4, new Location(xPositionList.get(1), 300), 60, 100);
 		Vehicle v3 = new Vehicle("Green", "FORD", 6, new Location(xPositionList.get(2), 480), 80, 100);
 

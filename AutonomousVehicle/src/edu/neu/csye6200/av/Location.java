@@ -2,7 +2,6 @@ package edu.neu.csye6200.av;
 
 public class Location {
 
-	public final int laneLen = 170;
 	private int xPosition;
 	private int yPosition;
 	
@@ -31,14 +30,6 @@ public class Location {
 
 	public void setyPosition(int yPosition) {
 		this.yPosition = yPosition;
-	}
-	
-	public void moveRight() {
-		this.yPosition += this.laneLen;
-	}
-	
-	public void moveLeft() {
-		this.yPosition -= this.laneLen;
 	}
 	
 	public boolean equals(Location l) {
